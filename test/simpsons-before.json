@@ -1,0 +1,49 @@
+{
+	"show": "Simpsons",
+	"characters": [{
+			"firstName": "Homer",
+			"lastName": "Simpson",
+			"age": 40,
+			"address": {
+				"line1": "742 Evergreen Terrace",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Marge",
+			"lastName": "Bouvier",
+			"age": 38,
+			"address": {
+				"line1": "742 Evergreen Terrace",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Bart",
+			"lastName": "Simpson",
+			"age": 10,
+			"address": {
+				"line1": "742 Evergreen Terrace",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Lisa",
+			"lastName": "Simpson",
+			"age": 8,
+			"address": {
+				"line1": "742 Evergreen Terrace",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Maggie",
+			"lastName": "Simpson",
+			"age": 1,
+			"address": {
+				"line1": "742 Evergreen Terrace",
+				"city": "Springfield"
+			}
+		}
+	]
+}

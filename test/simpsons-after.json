@@ -1,0 +1,45 @@
+{
+	"show": "Simpsons",
+	"creators": ["Matt Groening"],
+	"characters": [{
+			"firstName": "Homer J.",
+			"lastName": "Simpson",
+			"address": {
+				"line1": "742 Evergreen Tr",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Marge",
+			"lastName": "Bouvier",
+			"address": {
+				"line1": "742 Evergreen Tr",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Bart",
+			"lastName": "Simpson",
+			"address": {
+				"line1": "742 Evergreen Tr",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Lisa",
+			"lastName": "Simpson",
+			"address": {
+				"line1": "742 Evergreen Tr",
+				"city": "Springfield"
+			}
+		},
+		{
+			"firstName": "Maggie",
+			"lastName": "Simpson",
+			"address": {
+				"line1": "742 Evergreen Terrace",
+				"city": "Springfield"
+			}
+		}
+	]
+}
