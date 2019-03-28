@@ -33,7 +33,7 @@ class DiffResult {
 
 		const consolidatedDiff = pipe(
 			map(each => Object.assign({}, each, { groupPath: each.path.replace(regexp, expression) })),
-			sortBy(each => `${each.groupPath} ${JSON.stringify(each.lhs)} ${JSON.stringify(each.lhs)}`),
+			sortBy(each => `${each.groupPath} ${JSON.stringify(each.rhs)} ${JSON.stringify(each.lhs)}`),
 			groupWith((each1, each2) => {
 				return equals(each1.groupPath, each2.groupPath)
 					&& equals(each1.lhs, each2.lhs)
