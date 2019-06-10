@@ -9,7 +9,7 @@ const reconciliate = curry((rules, before, after) => {
 	const beforeNormalized = normalizeBefore(rules)(before);
 	const afterNormalized = normalizeAfter(rules)(after);
 
-	const result =  calculateDiff(beforeNormalized, afterNormalized);
+	const result =  calculateDiff(beforeNormalized, afterNormalized) || [];
 	const diff = pipe(
 		map(over(lensProp("path"), path => path.join("."))),
 		sortBy(prop("path"))
@@ -25,7 +25,7 @@ class DiffResult {
 		this.after = after;
 		this.displayPathReplacers = displayPathReplacers;
 	}
-	
+
 	parseExpression(expression) {
 		//TODO: WIP, not sure about the notation. It only needs to replace captured groups!
 		return expression
@@ -33,7 +33,7 @@ class DiffResult {
 			.replace(/\[\]/g, "\\d+") //square brackets match any index in an array, this won't work!
 			.replace(/\?/g, "[\\w\\d]+") //quotation mark matches any key
 	}
-	
+
 	getValue(path) {
 		const splitPath = path.split(".").map(x => x.match(/^\d+$/) ? parseInt(x) : x);
 		return view(lensPath(splitPath))(this.before);
@@ -43,8 +43,8 @@ class DiffResult {
 	 * Consolidate all the differences that match a given expression into a single occurrence
 	 */
 	consolidate(expression) {
-		const regexp = new RegExp(`^${this.parseExpression(expression)}`); 
-		
+		const regexp = new RegExp(`^${this.parseExpression(expression)}`);
+
 		const consolidatedDiff = pipe(
 			map(each => Object.assign({}, each, { groupPath: each.path.replace(regexp, expression) })),
 			sortBy(each => `${each.groupPath} ${JSON.stringify(each.rhs)} ${JSON.stringify(each.lhs)}`),
@@ -63,10 +63,10 @@ class DiffResult {
 
 		return new DiffResult(consolidatedDiff, this.before, this.after, this.displayPathReplacers)
 	}
-	
+
 	displayKey(expression, keyExtractor) {
-		const regexp = new RegExp(`^(${this.parseExpression(expression)})\\.([\\d\\w]+)(.*)$`); 
-		
+		const regexp = new RegExp(`^(${this.parseExpression(expression)})\\.([\\d\\w]+)(.*)$`);
+
 		const displayPathReplacer = path => {
 			if (path.match(regexp)) {
 				const keyHolderPath = path.replace(regexp, `$1.$2`);
@@ -77,7 +77,7 @@ class DiffResult {
 				return path;
 			}
 		}
-		
+
 		return new DiffResult(this.diff, this.before, this.after, [...this.displayPathReplacers, displayPathReplacer])
 	}
 
