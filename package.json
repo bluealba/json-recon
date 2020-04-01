@@ -13,7 +13,7 @@
   "devDependencies": {
     "coveralls": "^3.0.3",
     "eslint": "^5.15.3",
-    "jest": "^24.5.0"
+    "jest": "^25.2.4"
   },
   "dependencies": {
     "@bluealba/object-transform": "^1.0.1",
