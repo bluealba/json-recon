@@ -19,7 +19,7 @@
     "@bluealba/object-transform": "^1.0.1",
     "chalk": "^2.4.2",
     "deep-diff": "^1.0.2",
-    "ramda": "^0.26.1"
+    "ramda": "^0.27.1"
   },
   "jest": {
     "collectCoverage": true
