@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@bluealba/object-transform": "^1.0.1",
-    "chalk": "^2.4.2",
+    "chalk": "^4.1.1",
     "deep-diff": "^1.0.2",
     "ramda": "^0.26.1"
   },
